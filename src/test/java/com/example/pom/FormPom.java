@@ -1,5 +1,7 @@
 package com.example.pom;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -8,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.example.utils.Utils;
 
@@ -146,8 +149,14 @@ public class FormPom {
     }
 
     public String getTableData(String labelParam) {
-        String value = driver.findElement(By.xpath("//table//*[text()='" + labelParam + "']/../*[2]")).getText();
-        return value;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".modal-content")));
+
+        WebElement valueElement = driver.findElement(
+            By.xpath("//table//td[text()='" + labelParam + "']/following-sibling::td")
+        );
+        return valueElement.getText();
     }
 
     public void scrollToElement(WebElement element) {

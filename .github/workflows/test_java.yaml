@@ -39,7 +39,7 @@ jobs:
           echo "Selenoid is ready!"
 
       - name: Build with Maven
-        run: mvn test
+        run: mvn clean test
 
       - name: Check video directory
         if: always()

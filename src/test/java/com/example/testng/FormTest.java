@@ -20,12 +20,12 @@ public class FormTest {
     static public String LAST_NAME = "Tudor";
     static public String EMAIL = "tudor.2006x@gmail.com";
     static public String GENDER = "Male";
-    static public String NUMBER = "0600200677";
+    static public String NUMBER = "060020067";
     static public String DATE = "1 Jul 2006";
     static public String SUBJECT = "Maths";
     static public String HOBBY = "Music";
-    static public String STATE = "California";
-    static public String CITY = "New York";
+    static public String STATE = "NCR";
+    static public String CITY = "Noida";
 
     @BeforeMethod
     public void beforeMethod() throws MalformedURLException {
